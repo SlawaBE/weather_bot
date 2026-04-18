@@ -3,15 +3,18 @@ import datetime
 import requests
 import math
 from aiogram import Bot, types
+from aiogram.bot.api import TelegramAPIServer
 from aiogram.dispatcher import Dispatcher
 from aiogram.utils import executor 
 from dotenv import load_dotenv
 
 load_dotenv()
 TG_TOKEN = os.getenv("BOT_TOKEN")
+TG_BASEURL = os.getenv("BOT_BASEURL")
 WEATHER_TOKEN = os.getenv("WEATHER_TOKEN")
 
-bot = Bot(token=TG_TOKEN)
+server = TelegramAPIServer.from_base(TG_BASEURL)
+bot = Bot(token=TG_TOKEN,server=server)
 dp = Dispatcher(bot)
 
 @dp.message_handler(commands=["start"])

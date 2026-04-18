@@ -20,6 +20,12 @@
     BOT_TOKEN=your_telegram_token
     ```
 
+3. Если требуется смените базовый URL для Telegram API
+
+   ```
+   BOT_BASEURL=https://your_api_server
+   ```
+
 ## Запуск
 
 ### Python
